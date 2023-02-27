@@ -80,7 +80,7 @@
           },
           "defaultConfiguration": "development",
           "options": {
-            "browserTarget": "smart-to-buy-app:build:production",
+            "browserTarget": "smart-to-buy-app:build",
             "proxyConfig": "./proxy.conf.json"
           }
         },
