@@ -1,3 +1,7 @@
+package com.finki.smartToBuyApp.security
+
+import com.finki.smartToBuyApp.filters.JwtRequestFilter
+import com.finki.smartToBuyApp.service.MyUserService
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.security.authentication.AuthenticationManager
@@ -7,25 +11,28 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter
 import org.springframework.security.config.http.SessionCreationPolicy
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
+import org.springframework.security.crypto.password.PasswordEncoder
 
 @Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(securedEnabled = true, prePostEnabled = true)
-class WebSecurityConfig : WebSecurityConfigurerAdapter() {
+class WebSecurityConfig(
+    val authService: MyUserService,
+    val jwtRequestFilter: JwtRequestFilter
+
+) : WebSecurityConfigurerAdapter() {
 
     override fun configure(auth: AuthenticationManagerBuilder) {
-//        auth.userDetailsService(authService).passwordEncoder(passwordEncoder.passwordEncoder())
+        auth.userDetailsService(authService).passwordEncoder(getPasswordEncoder())
     }
 
     override fun configure(http: HttpSecurity) {
         http.cors().and().csrf().disable().authorizeRequests()
+            .antMatchers("**").permitAll()
             .antMatchers("/api/**").permitAll()
 //            .antMatchers("/api/tables/**").hasAnyAuthority("WAITER", "MANAGER")
 //            .antMatchers("/api/drinks/**").hasAnyAuthority("WAITER", "MANAGER")
-//            .antMatchers("/api/locales/**").hasAuthority("MANAGER")
-//            .antMatchers("/api/analytics/**").hasAuthority("MANAGER")
-//            .antMatchers("/api/storage/**").hasAuthority("MANAGER")
-//            .antMatchers("/api/employees/**").hasAuthority("MANAGER")
             .and()
             .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
 
@@ -33,7 +40,13 @@ class WebSecurityConfig : WebSecurityConfigurerAdapter() {
     }
 
     @Bean
+    fun getPasswordEncoder(): PasswordEncoder {
+        return BCryptPasswordEncoder(10)
+    }
+
+    @Bean
     override fun authenticationManagerBean(): AuthenticationManager {
         return super.authenticationManagerBean()
     }
+
 }

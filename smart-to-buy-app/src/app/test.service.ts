@@ -1,4 +1,4 @@
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Injectable} from "@angular/core";
 
@@ -14,7 +14,13 @@ export class TestService {
 
   getTest(): Observable<string[]> {
     console.log("tservice")
-    return this.http.get<string[]>(`${this.url}/test/tests`)
+  //TODO: This is useless i guess, if then remove
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin': 'http://localhost:4200'
+    });
+
+    return this.http.get<string[]>(`${this.url}/test/tests`, { headers: headers })
   }
 
 }
