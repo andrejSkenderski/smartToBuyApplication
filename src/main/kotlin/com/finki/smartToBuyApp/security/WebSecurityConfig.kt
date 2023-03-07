@@ -1,6 +1,6 @@
 package com.finki.smartToBuyApp.security
 
-import com.finki.smartToBuyApp.filters.JwtRequestFilter
+import com.finki.smartToBuyApp.security.filters.JwtRequestFilter
 import com.finki.smartToBuyApp.service.MyUserService
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration

@@ -14,13 +14,13 @@ import org.springframework.stereotype.Service
 
 @Service
 class UserService(
-    val userRepository: UserRepository,
+    val repository: UserRepository,
     val passwordEncoder: PasswordEncoder
 ) {
     val logger: Logger = LoggerFactory.getLogger(UserService::class.java)
 
     fun getUserByEmail(email: String): User? {
-        return userRepository.findByEmail(email)
+        return repository.findByEmail(email)
     }
 
     fun getLoggedInUser(): GetUserResponse {
@@ -46,7 +46,6 @@ class UserService(
             passwordEncoder.encode(request.password)
         )
         logger.info("Creating user: [{}]", user)
-        return userRepository.save(user)
-
+        return repository.save(user)
     }
 }

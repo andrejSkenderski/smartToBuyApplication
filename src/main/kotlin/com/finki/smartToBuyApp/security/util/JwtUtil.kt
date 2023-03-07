@@ -1,4 +1,4 @@
-package com.finki.smartToBuyApp.util
+package com.finki.smartToBuyApp.security.util
 
 import io.jsonwebtoken.Claims
 import io.jsonwebtoken.Jwts

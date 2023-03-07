@@ -3,7 +3,7 @@ package com.finki.smartToBuyApp.api
 import com.finki.smartToBuyApp.api.authentication.domain.AuthenticationRequest
 import com.finki.smartToBuyApp.api.authentication.domain.AuthenticationResponse
 import com.finki.smartToBuyApp.service.MyUserService
-import com.finki.smartToBuyApp.util.JwtUtil
+import com.finki.smartToBuyApp.security.util.JwtUtil
 import org.springframework.http.ResponseEntity
 import org.springframework.security.authentication.AuthenticationManager
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken

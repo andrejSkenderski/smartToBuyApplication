@@ -11,6 +11,7 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {AuthInterceptorService} from "./interceptors/auth-interceptor.service";
+import {CreateProduct} from "./components/product/create-product/create-product.component";
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import {AuthInterceptorService} from "./interceptors/auth-interceptor.service";
     DashboardComponent,
     FooterComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    CreateProduct
   ],
   imports: [
     BrowserModule,

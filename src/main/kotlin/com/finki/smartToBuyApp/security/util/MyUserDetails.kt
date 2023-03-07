@@ -1,4 +1,4 @@
-package com.finki.smartToBuyApp.util
+package com.finki.smartToBuyApp.security.util
 
 import com.finki.smartToBuyApp.domain.User
 import org.springframework.security.core.GrantedAuthority

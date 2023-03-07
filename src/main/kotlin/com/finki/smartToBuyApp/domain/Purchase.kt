@@ -9,7 +9,7 @@ import javax.persistence.*
 data class Purchase(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "purchase_id")
+    @Column(name = "id")
     val id: Long = 0,
 
     @ManyToOne
@@ -21,8 +21,8 @@ data class Purchase(
     val product: Product,
 
     @Column(name = "purchase_date")
-    val purchaseDate: LocalDateTime,
+    val purchaseDate: ZonedDateTime,
 
     @Column(name = "purchase_amount")
-    val purchaseAmount: Int
+    val purchaseAmount: Double
 )

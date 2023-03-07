@@ -5,7 +5,8 @@ spring:
   datasource:
     url: jdbc:postgresql://localhost:5432/smartToBuyApp
     username: postgres
-    password: sorsix
+#    password: sorsix
+    password: admin
   jpa:
     show-sql: true
     hibernate:

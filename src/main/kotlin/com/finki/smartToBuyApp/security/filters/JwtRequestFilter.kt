@@ -1,7 +1,7 @@
-package com.finki.smartToBuyApp.filters
+package com.finki.smartToBuyApp.security.filters
 
 import com.finki.smartToBuyApp.service.MyUserService
-import com.finki.smartToBuyApp.util.JwtUtil
+import com.finki.smartToBuyApp.security.util.JwtUtil
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken
 import org.springframework.security.core.context.SecurityContextHolder
 import org.springframework.security.web.authentication.WebAuthenticationDetailsSource

@@ -1,7 +1,7 @@
 package com.finki.smartToBuyApp.service
 
 import com.finki.smartToBuyApp.repository.UserRepository
-import com.finki.smartToBuyApp.util.MyUserDetails
+import com.finki.smartToBuyApp.security.util.MyUserDetails
 import org.springframework.security.core.userdetails.UserDetails
 import org.springframework.security.core.userdetails.UserDetailsService
 import org.springframework.stereotype.Service
