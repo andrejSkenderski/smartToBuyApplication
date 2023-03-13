@@ -9,9 +9,12 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {FormGroupDirective, FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {AuthInterceptorService} from "./interceptors/auth-interceptor.service";
 import {CreateProduct} from "./components/product/create-product/create-product.component";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatInput, MatInputModule} from "@angular/material/input";
+import {MatFormFieldModule} from "@angular/material/form-field";
 
 @NgModule({
   declarations: [
@@ -28,7 +31,10 @@ import {CreateProduct} from "./components/product/create-product/create-product.
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    MatFormFieldModule,
+    MatInputModule,
   ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true }],
   bootstrap: [AppComponent]
