@@ -1,0 +1,12 @@
+<form [formGroup]="form" (submit)="onSubmit()">
+  <h4>Select product</h4>
+  <mat-form-field appearance="fill">
+    <mat-label>Buy product</mat-label>
+    <mat-select>
+      <mat-option formControlName="products" *ngFor="let product of products$ | async" [value]="product.id">
+        {{product.label}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <button type="submit">Submit Application</button>
+</form>

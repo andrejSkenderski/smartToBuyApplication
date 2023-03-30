@@ -15,6 +15,8 @@ import {CreateProduct} from "./components/product/create-product/create-product.
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatInput, MatInputModule} from "@angular/material/input";
 import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatSelectModule} from "@angular/material/select";
+import { ProductsComponent } from './components/product/products/products.component';
 
 @NgModule({
   declarations: [
@@ -24,18 +26,20 @@ import {MatFormFieldModule} from "@angular/material/form-field";
     FooterComponent,
     LoginComponent,
     RegisterComponent,
-    CreateProduct
+    CreateProduct,
+    ProductsComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    ReactiveFormsModule,
-    FormsModule,
-    BrowserAnimationsModule,
-    MatFormFieldModule,
-    MatInputModule,
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        HttpClientModule,
+        ReactiveFormsModule,
+        FormsModule,
+        BrowserAnimationsModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatSelectModule,
+    ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true }],
   bootstrap: [AppComponent]
 })

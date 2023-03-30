@@ -2,6 +2,7 @@ package com.finki.smartToBuyApp.api
 
 import com.finki.smartToBuyApp.api.request.ProductRequest
 import com.finki.smartToBuyApp.domain.Product
+import com.finki.smartToBuyApp.domain.dto.ProductDto
 import com.finki.smartToBuyApp.service.ProductService
 import org.springframework.web.bind.annotation.*
 
@@ -17,4 +18,7 @@ class ProductController(
     @PutMapping("/{id}/update")
     fun update(@PathVariable id: Long, @RequestBody request: ProductRequest): Product =
         service.update(id = id, request = request)
+
+    @GetMapping
+    fun findAll() = service.findAll().stream().map { ProductDto(id = it.id, label = it.name) }.toList()
 }

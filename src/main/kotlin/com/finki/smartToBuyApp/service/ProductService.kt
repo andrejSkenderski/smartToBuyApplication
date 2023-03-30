@@ -40,5 +40,7 @@ class ProductService(
         )
     }
 
+    fun findAll(): List<Product> = repository.findAll()
+
 
 }
