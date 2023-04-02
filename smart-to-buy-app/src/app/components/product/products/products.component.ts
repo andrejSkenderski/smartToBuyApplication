@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Observable} from "rxjs";
 import {ProductsService} from "../../../services/products.service";
 import {Product} from "../../../models/product";
-import {Form, FormBuilder, FormControl, FormGroup} from "@angular/forms";
+import { FormBuilder, FormControl, FormGroup} from "@angular/forms";
 
 @Component({
   selector: 'app-products',
@@ -14,23 +14,23 @@ export class ProductsComponent implements OnInit {
   form: FormGroup;
   products$: Observable<Product[]> | undefined;
 
-  constructor(private _productService: ProductsService) {
-    this.form = this.formDefinition();
+  constructor(private _productService: ProductsService,
+              private _formBuilder: FormBuilder) {
+    this.form = this._formDefinition;
   }
 
   ngOnInit(): void {
     this.products$ = this._productService.getProducts()
   }
 
-  formDefinition() {
-    return this.form = new FormGroup({
-        products: new FormControl('')
-      }
-    );
-  }
 
   onSubmit() {
-    console.log(this.form.controls)
+    console.log('productID', this.form.get('products'));
   }
 
+  private get _formDefinition() {
+    return this._formBuilder.group({
+      products: new FormControl(null)
+    });
+  }
 }

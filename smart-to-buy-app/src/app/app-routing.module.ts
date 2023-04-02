@@ -4,12 +4,14 @@ import {DashboardComponent} from "./components/dashboard/dashboard.component";
 import {RegisterComponent} from "./components/register/register.component";
 import {LoginComponent} from "./components/login/login.component";
 import {ProductsComponent} from "./components/product/products/products.component";
+import {CreateProduct} from "./components/product/create-product/create-product.component";
 
 const routes: Routes = [
   {path: "home", component: DashboardComponent},
   {path: "products", component: ProductsComponent},
   {path: "register", component: RegisterComponent},
   {path: "login", component: LoginComponent},
+  {path: "create-product", component: CreateProduct},
   {path: "", redirectTo: "home", pathMatch: "full"}
 ];
 

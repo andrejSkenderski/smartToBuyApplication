@@ -13,4 +13,7 @@ class ProductCategoryController(
 ) {
     @PostMapping
     fun save(@RequestBody request: ProductCategoryRequest): ProductCategory = service.save(request)
+
+    @GetMapping
+    fun findAll() = service.findAll()
 }

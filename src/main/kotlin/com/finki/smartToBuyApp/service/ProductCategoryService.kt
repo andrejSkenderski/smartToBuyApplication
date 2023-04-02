@@ -16,4 +16,6 @@ class ProductCategoryService(
 
     fun save(request: ProductCategoryRequest): ProductCategory =
         repository.save(ProductCategory(name = request.name))
+
+    fun findAll(): List<ProductCategory> = repository.findAll()
 }
