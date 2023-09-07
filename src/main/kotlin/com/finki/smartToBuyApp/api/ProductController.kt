@@ -20,5 +20,7 @@ class ProductController(
         service.update(id = id, request = request)
 
     @GetMapping
-    fun findAll() = service.findAll().stream().map { ProductDto(id = it.id, label = it.name) }.toList()
+    fun findAll() = service.findAll()
+            .map { ProductDto(id = it.id, name = it.name, price = it.price) }
+            .toList()
 }

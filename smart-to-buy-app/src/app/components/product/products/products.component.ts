@@ -1,18 +1,18 @@
 import {Component, OnInit} from '@angular/core';
-import {Observable} from "rxjs";
 import {ProductsService} from "../../../services/products.service";
 import {Product} from "../../../models/product";
 import { FormBuilder, FormControl, FormGroup} from "@angular/forms";
 
 @Component({
-  selector: 'app-products',
+  selector: 'products',
   templateUrl: './products.component.html',
   styleUrls: ['./products.component.scss']
 })
 export class ProductsComponent implements OnInit {
 
   form: FormGroup;
-  products$: Observable<Product[]> | undefined;
+  products: Product[] | undefined;
+  suggestedProducts: Product[] | undefined;
 
   constructor(private _productService: ProductsService,
               private _formBuilder: FormBuilder) {
@@ -20,8 +20,15 @@ export class ProductsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.products$ = this._productService.getProducts()
-  }
+    this._productService.getProducts().subscribe({
+      next: value => this.products = value
+      }
+    )
+
+    this._productService.getProducts().subscribe({
+        next: value => this.suggestedProducts = value
+      }
+    )  }
 
 
   onSubmit() {

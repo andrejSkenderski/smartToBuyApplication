@@ -9,7 +9,7 @@ import {User} from "../../models/user";
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit{
 
   isLoggedIn: boolean = false
   loggedInUser: User | null = null
