@@ -1,23 +1,34 @@
 <form [formGroup]="form" (submit)="onSubmit()">
-
-  <section class="product-list">
-    <article class="product-card" *ngFor="let product of products">
-      <!--    <img [src]="product.imageUrl" [alt]="product.name" class="product-image">-->
-      <h2 class="product-title">{{ product.name }}</h2>
-      <p class="product-price">{{ '$' + product.price }}</p>
-    </article>
-  </section>
+  <div class="add-product-container" *ngIf="isLoggedIn">
+    <a routerLink="/create-product" class="btn btn-dark me-2">Add product</a>
+  </div>
 
   <section class="suggested-products">
-    <h3 class="section-title">Suggested Products</h3>
+    <div>
+      <h3 class="section-title">Suggested Products</h3>
+    </div>
     <div class="suggested-product-container">
       <div class="suggested-product-card" *ngFor="let product of suggestedProducts">
-        <!--      <img [src]="product.imageUrl" [alt]="product.name" class="product-image">-->
+        <img [src]="product?.image" [alt]="product?.image" class="product-image">
         <h2 class="product-title">{{ product.name }}</h2>
         <p class="product-price">{{ '$' + product.price }}</p>
+        <button *ngIf="isLoggedIn" (click)="addToCart(product.id)" class="btn btn-primary">Add to Cart</button>
       </div>
-      <button class="more-button">More</button>
+      <!--      <button class="more-button">More</button>-->
     </div>
   </section>
-  <a routerLink="/create-product" class="btn btn-dark me-2">Add product</a>
+
+  <div class="section-title-container">
+    <h3 class="section-title">Other products in shop</h3>
+  </div>
+
+    <section class="product-list">
+      <article class="product-card" *ngFor="let product of products">
+        <img [src]="product?.image" [alt]="product?.image" class="product-image">
+        <h2 class="product-title">{{ product.name }}</h2>
+        <p class="product-price">{{ '$' + product.price }}</p>
+        <button *ngIf="isLoggedIn" (click)="addToCart(product.id)" class="btn btn-primary">Add to Cart</button>
+      </article>
+    </section>
+
 </form>

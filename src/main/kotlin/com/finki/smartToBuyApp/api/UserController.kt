@@ -32,7 +32,7 @@ class UserController(private val userService: UserService) {
 
     @GetMapping("/{id}")
     fun findUserById(@PathVariable id: Long): User {
-        return userService.findUserById(id)
+        return userService.findById(id)
     }
 
 }

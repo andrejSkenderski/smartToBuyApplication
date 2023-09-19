@@ -21,5 +21,8 @@ data class Product(
 
     @ManyToOne
     @JoinColumn(name = "category_id")
-    val category: ProductCategory
+    val category: ProductCategory,
+
+    @Column(name = "image")
+    val image: String? = null
 )

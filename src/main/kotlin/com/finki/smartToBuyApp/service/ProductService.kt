@@ -13,12 +13,13 @@ class ProductService(
     private val categoryService: ProductCategoryService
 ) {
     fun save(request: ProductRequest): Product {
-        val category = categoryService.findById(request.categoryId)
+        val category = categoryService.findById(request.category)
         val newProduct = Product(
             name = request.name,
             description = request.description,
             price = request.price,
-            category = category
+            category = category,
+            image = request.image
         )
         return repository.save(newProduct)
     }
@@ -28,7 +29,7 @@ class ProductService(
 
     fun update(id: Long, request: ProductRequest): Product {
         val product = findById(id)
-        val category = categoryService.findById(request.categoryId)
+        val category = categoryService.findById(request.category)
         return repository.save(
             product.copy(
                 id = id,

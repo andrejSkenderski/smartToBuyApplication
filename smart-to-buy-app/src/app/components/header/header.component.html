@@ -8,6 +8,9 @@
     <div *ngIf="isLoggedIn && loggedInUser" class="navbar-nav">
       <div class="d-flex align-items-center">
         <a class="nav-link me-2" routerLink="/profile">{{loggedInUser.email}}</a>
+        <a routerLink="/cart-items" class="nav-link">
+          <i class="material-icons">shopping_cart</i> <!-- Use the Material Icons shopping_cart icon -->
+        </a>
         <a (click)="logout()" class="btn btn-sm btn-light">Logout</a>
       </div>
     </div>

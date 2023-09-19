@@ -1,0 +1,43 @@
+/* Apply these styles to the create-product page form */
+.create-product-form {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+
+  /* Style for each form group */
+  .form-group {
+    margin-bottom: 20px;
+
+    /* Style for the form field */
+    .form-field {
+      width: 100%;
+
+      /* Style for the input field */
+      .input-field {
+        font-size: 16px;
+      }
+
+      /* Style for the select field */
+      .select-field {
+        font-size: 16px;
+      }
+    }
+  }
+
+  /* Style for the submit button */
+  .submit-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: #0056b3;
+    }
+  }
+}

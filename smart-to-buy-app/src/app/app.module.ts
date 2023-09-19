@@ -17,6 +17,7 @@ import {MatInput, MatInputModule} from "@angular/material/input";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatSelectModule} from "@angular/material/select";
 import { ProductsComponent } from './components/product/products/products.component';
+import { CartComponent } from './components/cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { ProductsComponent } from './components/product/products/products.compon
     LoginComponent,
     RegisterComponent,
     CreateProduct,
-    ProductsComponent
+    ProductsComponent,
+    CartComponent
   ],
     imports: [
         BrowserModule,

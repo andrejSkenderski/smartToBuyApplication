@@ -10,17 +10,17 @@ import org.springframework.web.bind.annotation.*
 @CrossOrigin
 @RequestMapping("/api/products")
 class ProductController(
-    private val service: ProductService
+        private val service: ProductService
 ) {
     @PostMapping
     fun save(@RequestBody request: ProductRequest): Product = service.save(request)
 
     @PutMapping("/{id}/update")
     fun update(@PathVariable id: Long, @RequestBody request: ProductRequest): Product =
-        service.update(id = id, request = request)
+            service.update(id = id, request = request)
 
     @GetMapping
     fun findAll() = service.findAll()
-            .map { ProductDto(id = it.id, name = it.name, price = it.price) }
+            .map { ProductDto(id = it.id, name = it.name, price = it.price, image = it.image, description = it.description) }
             .toList()
 }

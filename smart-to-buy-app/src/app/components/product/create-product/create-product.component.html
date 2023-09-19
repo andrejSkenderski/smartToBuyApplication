@@ -1,19 +1,37 @@
-<form [formGroup]="form" (submit)="onSubmit()">
-  <div>
-    <mat-form-field>
-      <input matInput formControlValidator formControlName="name" placeholder="Product name">
+<form [formGroup]="form" (submit)="onSubmit()" class="create-product-form">
+  <div class="form-group">
+    <mat-form-field class="form-field">
+      <input matInput formControlValidator formControlName="name" placeholder="Product name" class="input-field">
     </mat-form-field>
   </div>
 
-  <div>
-    <mat-form-field>
-      <mat-select>
-        <mat-option formControlName="category" *ngFor="let category of categories$ | async" [value]="category.id">
-          {{category.name}}
+  <div class="form-group">
+    <mat-form-field class="form-field">
+      <input matInput formControlValidator formControlName="price" placeholder="Product price" type="number" class="input-field">
+    </mat-form-field>
+  </div>
+
+  <div class="form-group">
+    <mat-form-field class="form-field">
+      <mat-select formControlName="category" placeholder="Select Category" class="select-field">
+        <mat-option *ngFor="let cat of categories$ | async" [value]="cat.id">
+          {{ cat.name }}
         </mat-option>
       </mat-select>
     </mat-form-field>
   </div>
 
-  <button type="submit">Add product</button>
+  <div class="form-group">
+    <mat-form-field class="form-field">
+      <input matInput formControlValidator formControlName="description" placeholder="Product description" class="input-field">
+    </mat-form-field>
+  </div>
+
+  <div class="form-group">
+    <mat-form-field class="form-field">
+      <input matInput formControlValidator formControlName="image" placeholder="Product image url" class="input-field">
+    </mat-form-field>
+  </div>
+
+  <button type="submit" class="submit-button">Add product</button>
 </form>

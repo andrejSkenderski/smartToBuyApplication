@@ -51,7 +51,7 @@ class UserService(
         return repository.save(user)
     }
 
-    fun findUserById(id: Long): User {
+    fun findById(id: Long): User {
         return repository.findByIdOrNull(id) ?: throw EntityNotFoundException("User with id $id is not found.")
     }
 }
