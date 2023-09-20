@@ -11,7 +11,7 @@
       <div class="suggested-product-card" *ngFor="let product of suggestedProducts">
         <img [src]="product?.image" [alt]="product?.image" class="product-image">
         <h2 class="product-title">{{ product.name }}</h2>
-        <p class="product-price">{{ '$' + product.price }}</p>
+        <p class="product-price">{{ product.price }} MKD</p>
         <button *ngIf="isLoggedIn" (click)="addToCart(product.id)" class="btn btn-primary">Add to Cart</button>
       </div>
       <!--      <button class="more-button">More</button>-->
@@ -26,7 +26,7 @@
       <article class="product-card" *ngFor="let product of products">
         <img [src]="product?.image" [alt]="product?.image" class="product-image">
         <h2 class="product-title">{{ product.name }}</h2>
-        <p class="product-price">{{ '$' + product.price }}</p>
+        <p class="product-price">{{ product.price }} MKD</p>
         <button *ngIf="isLoggedIn" (click)="addToCart(product.id)" class="btn btn-primary">Add to Cart</button>
       </article>
     </section>

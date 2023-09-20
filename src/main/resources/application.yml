@@ -5,8 +5,8 @@ spring:
   datasource:
     url: jdbc:postgresql://localhost:5432/smartToBuyApp
     username: postgres
-    password: sorsix #Oliver: kje probam drugpat da smenam pass kaj mene na db
-#    password: admin
+#    password: sorsix #Oliver: kje probam drugpat da smenam pass kaj mene na db
+    password: admin
   jpa:
     show-sql: true
     hibernate:

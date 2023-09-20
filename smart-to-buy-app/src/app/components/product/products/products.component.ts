@@ -5,6 +5,7 @@ import {FormBuilder, FormControl, FormGroup} from "@angular/forms";
 import {CartItemService} from "../../../services/cart-item.service";
 import {User} from "../../../models/user";
 import {UserService} from "../../../services/user.service";
+import {SuggestedProductsService} from "../../../services/suggested-products.service";
 
 @Component({
   selector: 'products',
@@ -23,7 +24,8 @@ export class ProductsComponent implements OnInit {
   constructor(private _productService: ProductsService,
               private _formBuilder: FormBuilder,
               private cartItemService: CartItemService,
-              private userService: UserService
+              private userService: UserService,
+              private _suggestedProductService: SuggestedProductsService
   ) {
     this.form = this._formDefinition;
   }
@@ -46,7 +48,7 @@ export class ProductsComponent implements OnInit {
       }
     )
 
-    this._productService.getProducts().subscribe({
+    this._suggestedProductService.getSuggestedProducts().subscribe({
         next: value => this.suggestedProducts = value
       }
     )

@@ -54,4 +54,6 @@ class UserService(
     fun findById(id: Long): User {
         return repository.findByIdOrNull(id) ?: throw EntityNotFoundException("User with id $id is not found.")
     }
+
+    fun findAll(): List<User> = repository.findAll()
 }
